@@ -464,7 +464,7 @@ pgresult_ftype(VALUE self, VALUE index)
 	if (i < 0 || i >= PQnfields(result)) {
 		rb_raise(rb_eArgError, "invalid field number %d", i);
 	}
-	return INT2NUM(PQftype(result, i));
+	return UINT2NUM(PQftype(result, i));
 }
 
 /*
