@@ -389,7 +389,7 @@ pgresult_ftable(VALUE self, VALUE column_number)
 		rb_raise(rb_eArgError,"Invalid column index: %d", col_number);
 
 	n = PQftable(pgresult, col_number);
-	return INT2FIX(n);
+	return UINT2NUM(n);
 }
 
 /*
@@ -640,7 +640,7 @@ pgresult_paramtype(VALUE self, VALUE param_number)
 	PGresult *result;
 
 	result = pgresult_get(self);
-	return INT2FIX(PQparamtype(result,NUM2INT(param_number)));
+	return UINT2NUM(PQparamtype(result,NUM2INT(param_number)));
 }
 
 /*
@@ -693,7 +693,7 @@ pgresult_oid_value(VALUE self)
 	if (n == InvalidOid)
 		return Qnil;
 	else
-		return INT2FIX(n);
+		return UINT2NUM(n);
 }
 
 /* Utility methods not in libpq */
